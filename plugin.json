@@ -1,0 +1,53 @@
+{
+  "Id": "7487f0be-1afd-49a8-b257-c41459c5afa9",
+  "TriggerKeywords": ["ql"],
+  "Name": "Quick Links",
+  "Description": "Quickly open named URLs in your browser",
+  "Author": "bonemind",
+  "Version": "0.0.1",
+  "MinWoxVersion": "2.0.0",
+  "Runtime": "nodejs",
+  "Website": "https://github.com/bonemind/quicklinks",
+  "Entry": "index.js",
+  "Icon": "emoji:🔗",
+  "SupportedOS": ["Windows", "Linux", "Darwin"],
+  "Commands": [
+    {
+      "Command": "add",
+      "Description": "Add a new quick link: add <name> <url>"
+    }
+  ],
+  "Features": [
+    { "Name": "mru", "Params": { "HashBy": "title" } }
+  ],
+  "SettingDefinitions": [
+    {
+      "Type": "table",
+      "Value": {
+        "Key": "links",
+        "DefaultValue": "[]",
+        "Title": "Quick Links",
+        "Tooltip": "Add named URLs to open quickly",
+        "SortColumnKey": "name",
+        "SortOrder": "asc",
+        "MaxHeight": 500,
+        "Columns": [
+          {
+            "Key": "name",
+            "Label": "Name",
+            "Type": "text",
+            "Width": 150,
+            "Validators": [{ "Type": "not_empty", "Value": {} }]
+          },
+          {
+            "Key": "url",
+            "Label": "URL",
+            "Type": "text",
+            "Width": 350,
+            "Validators": [{ "Type": "not_empty", "Value": {} }]
+          }
+        ]
+      }
+    }
+  ]
+}
