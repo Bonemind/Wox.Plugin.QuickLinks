@@ -21,7 +21,9 @@ function makeApi(linksJson: string, onSave?: (key: string, value: string) => voi
     Log: (_ctx: Context, level: string, message: string) => console.log(level, message),
     GetSetting: async (_ctx: Context, key: string) => (key === "links" ? linksJson : ""),
     OnSettingChanged: async () => {},
-    SaveSetting: async (_ctx: Context, key: string, value: string) => { onSave?.(key, value) },
+    SaveSetting: async (_ctx: Context, key: string, value: string) => {
+      onSave?.(key, value)
+    },
     Notify: async () => {},
     HideApp: async () => {}
   } as unknown as PublicAPI
@@ -111,7 +113,12 @@ test("add command: shows save action when name and url given", async () => {
 
 test("add command: saves link on action", async () => {
   let saved = ""
-  await plugin.init(ctx, { PluginDirectory: "", API: makeApi("[]", (_key, value) => { saved = value }) })
+  await plugin.init(ctx, {
+    PluginDirectory: "",
+    API: makeApi("[]", (_key, value) => {
+      saved = value
+    })
+  })
   const results = await plugin.query(ctx, { ...addQuery, Search: "GitHub https://github.com" })
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const action = (results[0] as any).Actions[0]
