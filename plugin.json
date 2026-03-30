@@ -1,6 +1,8 @@
 {
   "Id": "7487f0be-1afd-49a8-b257-c41459c5afa9",
-  "TriggerKeywords": ["ql"],
+  "TriggerKeywords": [
+    "ql"
+  ],
   "Name": "Quick Links",
   "Description": "Quickly open named URLs in your browser",
   "Author": "bonemind",
@@ -9,8 +11,12 @@
   "Runtime": "nodejs",
   "Website": "https://github.com/bonemind/quicklinks",
   "Entry": "index.js",
-  "Icon": "emoji:🔗",
-  "SupportedOS": ["Windows", "Linux", "Darwin"],
+  "Icon": "relative:images/icon.svg",
+  "SupportedOS": [
+    "Windows",
+    "Linux",
+    "Darwin"
+  ],
   "Commands": [
     {
       "Command": "add",
@@ -18,7 +24,12 @@
     }
   ],
   "Features": [
-    { "Name": "mru", "Params": { "HashBy": "title" } }
+    {
+      "Name": "mru",
+      "Params": {
+        "HashBy": "title"
+      }
+    }
   ],
   "SettingDefinitions": [
     {
@@ -37,14 +48,24 @@
             "Label": "Name",
             "Type": "text",
             "Width": 150,
-            "Validators": [{ "Type": "not_empty", "Value": {} }]
+            "Validators": [
+              {
+                "Type": "not_empty",
+                "Value": {}
+              }
+            ]
           },
           {
             "Key": "url",
             "Label": "URL",
             "Type": "text",
             "Width": 350,
-            "Validators": [{ "Type": "not_empty", "Value": {} }]
+            "Validators": [
+              {
+                "Type": "not_empty",
+                "Value": {}
+              }
+            ]
           }
         ]
       }
