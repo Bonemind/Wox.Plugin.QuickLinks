@@ -29,15 +29,15 @@ In **Wox Settings → Plugins → Quick Links**, use **Pinyin search** (**拼音
 It is **enabled by default**, independent of Wox's global pinyin setting, and changes take effect immediately.
 The label and tooltip follow Wox's display language: Chinese locales use Simplified Chinese, and other languages fall back to English.
 
-For a link named `雷神加速器`:
+For a link named `记事本`:
 
-| Query                 | Matching mode                    |
-| --------------------- | -------------------------------- |
-| `ql leishen`          | Full pinyin for part of the name |
-| `ql leishenjiasuqi`   | Full pinyin for the entire name  |
-| `ql ls` or `ql lsjsq` | Pinyin initials                  |
-| `ql leis`             | Syllable prefixes                |
-| `ql 雷shen`           | Mixed Chinese and pinyin         |
+| Query               | Matching mode                    |
+| ------------------- | -------------------------------- |
+| `ql jishi`          | Full pinyin for part of the name |
+| `ql jishiben`       | Full pinyin for the entire name  |
+| `ql js` or `ql jsb` | Pinyin initials                  |
+| `ql jis`            | Syllable prefixes                |
+| `ql 记shi`          | Mixed Chinese and pinyin         |
 
 Matching is case-insensitive, supports polyphonic characters and `v` for `ü`, and requires consecutive characters in the link name.
 The original name/URL substring matching and result ordering are preserved, including when pinyin search is disabled.
