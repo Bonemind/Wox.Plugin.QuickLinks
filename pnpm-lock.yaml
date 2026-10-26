@@ -11,6 +11,9 @@ importers:
       '@wox-launcher/wox-plugin':
         specifier: ^0.0.121
         version: 0.0.121
+      pinyin-pro:
+        specifier: 3.29.5
+        version: 3.29.5
     devDependencies:
       '@babel/cli':
         specifier: ^7.24.7
@@ -1774,6 +1777,9 @@ packages:
   pify@4.0.1:
     resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
     engines: {node: '>=6'}
+
+  pinyin-pro@3.29.5:
+    resolution: {integrity: sha512-Fk5YoRmtdHqJWqAuzYVG/NzvzeCbaG+ZEwbY6Nbps3QAIrvQQEtcm49frcyCM8i2b5najnzPDtYqrHRYTTiuwQ==}
 
   pirates@4.0.7:
     resolution: {integrity: sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==}
@@ -4323,6 +4329,8 @@ snapshots:
   picomatch@4.0.3: {}
 
   pify@4.0.1: {}
+
+  pinyin-pro@3.29.5: {}
 
   pirates@4.0.7: {}
 

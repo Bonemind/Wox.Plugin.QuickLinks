@@ -1,5 +1,6 @@
 import { execFile } from "child_process"
 import { platform } from "os"
+import { match } from "pinyin-pro"
 import { Context, Plugin, PluginInitParams, PublicAPI, Query, Result, ResultAction } from "@wox-launcher/wox-plugin"
 
 interface QuickLink {
@@ -9,6 +10,8 @@ interface QuickLink {
 
 let api: PublicAPI
 let links: QuickLink[] = []
+let enablePinyin = true
+const hanPattern = new RegExp("\\p{Script=Han}", "u")
 
 function openUrl(url: string): void {
   if (platform() === "win32") {
@@ -42,7 +45,7 @@ function parseLinks(raw: string): QuickLink[] {
     const parsed = JSON.parse(raw)
     if (Array.isArray(parsed)) return parsed as QuickLink[]
   } catch (error) {
-    console.warn("Error parsing quicklinks string", raw, error);
+    console.warn("Error parsing quicklinks string", raw, error)
   }
   return []
 }
@@ -87,9 +90,13 @@ export const plugin: Plugin = {
     api = initParams.API
     const raw = await api.GetSetting(ctx, "links")
     links = parseLinks(raw)
+    // Existing installations may not have persisted the new setting yet.
+    enablePinyin = (await api.GetSetting(ctx, "enablePinyin")).trim().toLowerCase() !== "false"
     await api.OnSettingChanged(ctx, async (_ctx, key, value) => {
       if (key === "links") {
         links = parseLinks(value)
+      } else if (key === "enablePinyin") {
+        enablePinyin = value.trim().toLowerCase() !== "false"
       }
     })
   },
@@ -131,7 +138,13 @@ export const plugin: Plugin = {
     // Filter mode
     const searchLower = search.toLowerCase()
     const filtered = searchLower
-      ? links.filter(l => l.name.toLowerCase().includes(searchLower) || l.url.toLowerCase().includes(searchLower))
+      ? links.filter(
+          l =>
+            l.name.toLowerCase().includes(searchLower) ||
+            l.url.toLowerCase().includes(searchLower) ||
+            // Match syllable prefixes and initials without skipping characters in the name.
+            (enablePinyin && hanPattern.test(l.name) && match(l.name, searchLower, { precision: "start", continuous: true, v: true }) !== null)
+        )
       : links
 
     if (filtered.length === 0) {
