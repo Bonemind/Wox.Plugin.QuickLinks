@@ -1,22 +1,42 @@
 {
   "Id": "7487f0be-1afd-49a8-b257-c41459c5afa9",
-  "TriggerKeywords": [
-    "ql"
-  ],
+  "TriggerKeywords": ["ql"],
   "Name": "Quick Links",
   "Description": "Quickly open named URLs in your browser",
   "Author": "bonemind",
   "Version": "0.0.2",
   "MinWoxVersion": "2.0.0",
   "Runtime": "nodejs",
-  "Website": "https://github.com/bonemind/quicklinks",
+  "Website": "https://github.com/Bonemind/Wox.Plugin.QuickLinks",
   "Entry": "index.js",
   "Icon": "relative:images/icon.svg",
-  "SupportedOS": [
-    "Windows",
-    "Linux",
-    "Darwin"
-  ],
+  "SupportedOS": ["Windows", "Linux", "Darwin"],
+  "I18n": {
+    "en_US": {
+      "pinyin_search_label": "Pinyin search",
+      "pinyin_search_tooltip": "Match full pinyin and initials. Changes apply immediately."
+    },
+    "zh_CN": {
+      "pinyin_search_label": "拼音检索",
+      "pinyin_search_tooltip": "支持全拼和首字母，修改后立即生效。"
+    },
+    "zh_TW": {
+      "pinyin_search_label": "拼音检索",
+      "pinyin_search_tooltip": "支持全拼和首字母，修改后立即生效。"
+    },
+    "zh_HK": {
+      "pinyin_search_label": "拼音检索",
+      "pinyin_search_tooltip": "支持全拼和首字母，修改后立即生效。"
+    },
+    "zh_MO": {
+      "pinyin_search_label": "拼音检索",
+      "pinyin_search_tooltip": "支持全拼和首字母，修改后立即生效。"
+    },
+    "zh_SG": {
+      "pinyin_search_label": "拼音检索",
+      "pinyin_search_tooltip": "支持全拼和首字母，修改后立即生效。"
+    }
+  },
   "Commands": [
     {
       "Command": "add",
@@ -32,6 +52,15 @@
     }
   ],
   "SettingDefinitions": [
+    {
+      "Type": "checkbox",
+      "Value": {
+        "Key": "enablePinyin",
+        "DefaultValue": "true",
+        "Label": "i18n:pinyin_search_label",
+        "Tooltip": "i18n:pinyin_search_tooltip"
+      }
+    },
     {
       "Type": "table",
       "Value": {
