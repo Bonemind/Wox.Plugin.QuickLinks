@@ -28,7 +28,10 @@ Links can also be managed directly in the Wox settings UI under the Quick Links 
 
 ## Pinyin search
 
-In **Wox Settings → Plugins → Quick Links**, use **Enable pinyin search / 启用拼音检索** to control this feature.
+In **Wox Settings → Plugins → Quick Links**, use **Pinyin search** (**拼音检索** in Chinese) to control this feature.
+The label and tooltip follow Wox's display language through its native plugin translation mechanism, with English as the fallback.
+Chinese locale entries (`zh_CN`, `zh_TW`, `zh_HK`, `zh_MO`, `zh_SG`) use Simplified Chinese text.
+Current Wox releases expose `zh_CN`; the Traditional Chinese entries are included for hosts that support those locales.
 It is **enabled by default**, including for existing installations without a saved value. Changes take effect immediately without restarting the plugin.
 This is a plugin-specific setting, independent of Wox's global pinyin setting.
 
@@ -52,7 +55,7 @@ Enabling pinyin does not change the trigger keywords or automatically enable glo
 For placeholder links, select the link using pinyin and then use **Fill & Open** to enter arguments after its original name.
 Pinyin aliases followed directly by arguments are not a new invocation syntax.
 
-中文说明：插件设置中的「启用拼音检索」默认开启，独立于 Wox 全局拼音设置，修改后立即生效。关闭后仍可使用原名称和 URL 搜索。
+中文说明：插件设置中的「拼音检索」默认开启，独立于 Wox 全局拼音设置，修改后立即生效。关闭后仍可使用原名称和 URL 搜索。名称和提示跟随 Wox 界面语言，中文使用简中文案，其他语言回退到英文。
 
 ## Placeholders
 
